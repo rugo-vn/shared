@@ -1,0 +1,19 @@
+{
+  "name": "@rugo-vn/shared",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "c8 npm run test"
+  },
+  "devDependencies": {
+    "c8": "^7.11.2",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  },
+  "keywords": [],
+  "author": "Vu Anh Hao <hi@haova.me> (https://www.haova.me)",
+  "license": "MIT"
+}
