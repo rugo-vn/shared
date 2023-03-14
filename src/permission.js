@@ -56,3 +56,19 @@ export const getMatchPerm = function (perms, info) {
 
   return null;
 };
+
+export const toFilters = function (perm, exclude) {
+  const filters = {};
+
+  for (const rule in perm) {
+    const value = perm[rule];
+
+    if (exclude.indexOf(rule) !== -1) continue;
+
+    if (value === WIDECARD_VALUE) continue;
+
+    filters[rule] = value;
+  }
+
+  return filters;
+};

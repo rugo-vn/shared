@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { checkPermInfo, getMatchPerm } from '../src/permission.js';
+import { checkPermInfo, getMatchPerm, toFilters } from '../src/permission.js';
 
 describe('Rugo Permission test', () => {
   /* confirm all info properties are macth with perm */
@@ -47,19 +47,14 @@ describe('Rugo Permission test', () => {
         tableName: '*',
         id: { $in: ['123', '456'] },
         user: '456',
+        extra: '*',
       },
     ];
 
     const passport = getMatchPerm(perms, info);
-    const filters = {};
-    for (const rule in passport) {
-      const value = passport[rule];
-
-      if (['spaceId', 'tableName'].indexOf(rule) !== -1) continue;
-
-      filters[rule] = value;
-    }
+    const filters = toFilters(passport, ['spaceId', 'tableId']);
 
     expect(filters).to.has.property('user', '456');
+    expect(filters).not.to.has.property('extra');
   });
 });
