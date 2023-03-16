@@ -42,15 +42,27 @@ const passport = {
 };
 ```
 
-Your `passport` is your first matched permission in `perm`.
+Your `passport` is your first matched permission in `perm` which remove checked rules.
 
 E.g.
 
 ```js
 const passport = {
-  spaceId: '*',
-  tableName: '456',
   rowId: { $in: ['441', '223'] },
   userId: '789',
 };
 ```
+
+## Secure
+
+You can use method in secure to do cryptography.
+
+**`secure.encrypt`**
+
+**`secure.decrypt`**
+
+**`secure.hash`**
+
+**`secure.hashPassword`**
+
+**`secure.comparePassword`**

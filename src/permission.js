@@ -57,6 +57,15 @@ export const getMatchPerm = function (perms, info) {
   return null;
 };
 
+export const getPassport = function (perms, info) {
+  const matchedPerm = getMatchPerm(perms, info);
+  if (!matchedPerm) return matchedPerm;
+
+  const perm = { ...matchedPerm };
+  for (const key in info) delete perm[key];
+  return perm;
+};
+
 export const toFilters = function (perm, exclude) {
   const filters = {};
 

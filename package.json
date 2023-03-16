@@ -15,5 +15,9 @@
   },
   "keywords": [],
   "author": "Vu Anh Hao <hi@haova.me> (https://www.haova.me)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.1.1"
+  }
 }
